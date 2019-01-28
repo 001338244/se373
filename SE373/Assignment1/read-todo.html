@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Welcome to the read todo page</div>
+		<div id='table' />
+    </body>
+	<script type="text/javascript">
+        let myRequest = 'todo.json';
+		
+		fetch (myRequest).then(function(response){
+			return response.json();
+		}).then(function(json){
+			console.log(json);
+			buildTable(json);
+		});
+		
+		function buildTable(json){
+			str = '';
+			str += '<table border="1">';
+			str += '<tr>';
+			str += '<th>ID</th>';
+			str += '<th>User ID</th>';
+			str += '<th>Title</th>';
+			str += '<th>Completed</th>';
+			str += '</tr>';
+			for(let i = 0; i < json.length; i++){
+				str += '<tr>';
+				str += '<td>' + json[i].id + '</td>';
+				str += '<td>' + json[i].userId + '</td>';
+				str += '<td>' + json[i].title + '</td>';
+				str += '<td>' + json[i].completed + '</td>';
+				str += '</tr>';
+			}
+			str += '</table>';
+			document.getElementById('table').innerHTML = str;
+		}
+    </script>
+</html>

@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+nav {
+    background-color: dimgray;
+    text-align: center;
+    height: 50px;
+    width: 100%;
+}
+.btn {
+    background-color: transparent;
+    font-size: 25px;
+    outline: none;
+    border: none;
+    height: 100%;
+    width: 25%;
+    color: white;
+}
