@@ -1,0 +1,47 @@
+<div class="container">
+    <h1>{{button.text}}</h1>
+    <input type="hidden" name="id" value="{{id}}" />
+    <div class="form-group">
+        <label>First Name</label>
+        <input type="text" name="firstName" class="form-control" value="{{data.firstName}}" />
+        <label>Last Name</label>
+        <input type="text" name="lastName" class="form-control" value="{{data.lastName}}" />
+    </div>
+    <div class="form-group">
+        <label>Select Department</label>
+        <select name="department" id="select" class="form-control">
+            <option value="Manager">Manager</option>
+            <option value="Sales Associate">Sales Associate</option>
+            <option value="Cashier">Cashier</option>
+        </select>
+    </div>
+        <div class="form-group">
+        <label>Start Date</label>
+        <input type="date" name="startDate" id="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Job Title</label>
+        <input type="text" name="jobTitle" class="form-control" value="{{data.jobTitle}}" />
+    </div>
+    <div class="form-group">
+        <label>Annual Salary</label>
+        <input type="number" name="salary" class="form-control" value="{{data.salary}}" />
+    </div>
+    <input type="submit" value="{{button.text}}" class="btn {{button.class}}" />
+</div>
+
+<input type="hidden" id="department" value="{{data.department}}" />
+<input type="hidden" id="startDate" value="{{data.startDate}}" />
+<script>
+    document.getElementById("select").value = document.getElementById("department").value;
+    let date = new Date(document.getElementById("startDate").value);
+    let month = "" + (date.getMonth() + 1);
+    let day = "" + date.getDate();
+    if(month.length < 2){
+        month = "0" + month;
+    }
+    if(day.length < 2){
+        day = "0" + day;
+    }
+    document.getElementById("date").value = `${date.getFullYear()}-${month}-${day}`;
+</script>
